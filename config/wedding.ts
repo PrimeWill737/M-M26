@@ -79,7 +79,7 @@ export const weddingConfig: WeddingConfig = {
   traditional: {
     id: "traditional",
     label: "The Traditional Celebration",
-    date: "2026-12-19",
+    date: "2026-12-18",
     time: "14:00",
     timezone: "Africa/Lagos",
     utcOffset: "+01:00",
