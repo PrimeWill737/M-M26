@@ -1,6 +1,7 @@
 "use client";
 import { useState } from "react";
 import { Modal } from "../ui/Modal";
+import { Icon } from "../ui/Icon";
 const links = [
   ["Home", "home"],
   ["Wedding", "wedding"],
@@ -25,7 +26,7 @@ export function Navigation() {
         aria-expanded={open}
         aria-haspopup="dialog"
       >
-        <span aria-hidden="true">☰</span> Explore
+        <Icon name="menu" /> Explore
       </button>
       {open && (
         <Modal title="Our celebration" onClose={() => setOpen(false)}>
@@ -52,7 +53,7 @@ export function Navigation() {
               >
                 <span>0{index + 1}</span>
                 {name}
-                <span aria-hidden="true">↗</span>
+                <Icon name="arrowUpRight" />
               </a>
             ))}
           </nav>

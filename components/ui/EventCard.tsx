@@ -7,6 +7,7 @@ import {
 } from "@/utils/calendar";
 import { mapsUrl } from "@/utils/maps";
 import { Botanical } from "./Botanical";
+import { Icon } from "./Icon";
 export function EventCard({
   event,
   warm = false,
@@ -60,7 +61,7 @@ export function EventCard({
             target="_blank"
             rel="noopener noreferrer"
           >
-            View Location <span aria-hidden="true">↗</span>
+            View Location <Icon name="arrowUpRight" />
           </a>
           <a
             className="text-link"
@@ -68,7 +69,7 @@ export function EventCard({
             target="_blank"
             rel="noopener noreferrer"
           >
-            <span aria-hidden="true">▦</span> Add to Calendar
+            <Icon name="calendar" /> Add to Calendar
           </a>
         </div>
       </div>

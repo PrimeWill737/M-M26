@@ -1,5 +1,6 @@
 import { weddingConfig as c } from "@/config/wedding";
 import { SectionHeading } from "../ui/SectionHeading";
+import { Icon } from "../ui/Icon";
 import { GuestWish } from "./GuestWish";
 export function RSVP() {
   return (
@@ -26,7 +27,7 @@ export function RSVP() {
             </span>
             <h3>{contact.name}</h3>
             <span className="contact-number">
-              {contact.phone} <span aria-hidden="true">↗</span>
+              {contact.phone} <Icon name="arrowUpRight" />
             </span>
           </a>
         ))}

@@ -2,6 +2,7 @@
 import { useRef, useState } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { Modal } from "../ui/Modal";
+import { Icon } from "../ui/Icon";
 export function MusicToggle() {
   const ref = useRef<HTMLAudioElement>(null);
   const attempt = useRef(0);
@@ -65,13 +66,17 @@ export function MusicToggle() {
           onClose={quietly}
         >
           <div className="music-prompt-seal" aria-hidden="true">
-            <span>♪</span>
-            <span>♫</span>
+            <span>
+              <Icon name="note" />
+            </span>
+            <span>
+              <Icon name="note" />
+            </span>
           </div>
           <p>Let a soft melody accompany you as you open our invitation.</p>
           <div className="music-prompt-actions">
             <button className="button" onClick={play} disabled={pending}>
-              <span aria-hidden="true">♫</span>{" "}
+              <Icon name="note" />
               {pending ? "Starting music…" : "Play music"}
             </button>
             <button className="text-link" onClick={quietly}>

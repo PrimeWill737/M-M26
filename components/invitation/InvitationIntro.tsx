@@ -4,6 +4,7 @@ import { weddingConfig as c } from "@/config/wedding";
 import { dateStamp } from "@/utils/calendar";
 import { Botanical } from "../ui/Botanical";
 import { lockPageScroll } from "@/utils/scrollLock";
+import { Icon } from "../ui/Icon";
 export function InvitationIntro({ onOpen }: { onOpen: () => void }) {
   const [opening, setOpening] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
@@ -57,10 +58,10 @@ export function InvitationIntro({ onOpen }: { onOpen: () => void }) {
           aria-label="Open Invitation"
         >
           <span>{c.brand.monogram}</span>
-          <span aria-hidden="true">↗</span>
+          <Icon name="arrowUpRight" />
         </button>
         <button className="intro-open" onClick={open} disabled={opening}>
-          Open Invitation <span aria-hidden="true">→</span>
+          Open Invitation <Icon name="arrowRight" />
         </button>
         <span className="intro-footnote">
           A celebration of love, family & forever

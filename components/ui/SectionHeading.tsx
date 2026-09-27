@@ -1,3 +1,4 @@
+import { Icon } from "./Icon";
 export function SectionHeading({
   eyebrow,
   children,
@@ -10,7 +11,7 @@ export function SectionHeading({
       <span className="eyebrow">{eyebrow}</span>
       <h2>{children}</h2>
       <span className="little-flower" aria-hidden="true">
-        ✳
+        <Icon name="flower" />
       </span>
     </header>
   );

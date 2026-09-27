@@ -113,9 +113,12 @@
   font-size: 19px;
   font-style: italic;
   transition: transform 0.3s;
-  span:last-child {
-    font-size: 14px;
+  span {
     line-height: 1;
+  }
+  .icon {
+    width: 14px;
+    height: 14px;
   }
   &:hover {
     transform: rotate(0) scale(1.04);

@@ -4,6 +4,7 @@ import { weddingConfig as c } from "@/config/wedding";
 import { displayDate, displayTime } from "@/utils/calendar";
 import { mapsUrl } from "@/utils/maps";
 import { SectionHeading } from "../ui/SectionHeading";
+import { Icon } from "../ui/Icon";
 export function ScratchReveal() {
   const {
     canvasRef,
@@ -25,7 +26,7 @@ export function ScratchReveal() {
           <span className="eyebrow">Save the date</span>
           <h3>{displayDate(c.wedding)}</h3>
           <span className="little-flower" aria-hidden="true">
-            ✳
+            <Icon name="flower" />
           </span>
           <h4>{c.wedding.venue}</h4>
           <p>{c.wedding.address}</p>
@@ -37,7 +38,7 @@ export function ScratchReveal() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Tap to view location ↗
+            Tap to view location <Icon name="arrowUpRight" />
           </a>
         </div>
         <canvas
@@ -57,7 +58,13 @@ export function ScratchReveal() {
             : "A little touch reveals a beautiful beginning."}
         </span>
         <button className="text-link" onClick={revealed ? reset : reveal}>
-          {revealed ? "↻ Replay" : "Reveal Details"}
+          {revealed ? (
+            <>
+              <Icon name="replay" /> Replay
+            </>
+          ) : (
+            "Reveal Details"
+          )}
         </button>
       </div>
     </section>

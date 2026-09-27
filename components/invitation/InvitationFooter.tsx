@@ -4,6 +4,7 @@ import { weddingConfig as c } from "@/config/wedding";
 import { deviceUrl } from "@/utils/deviceRedirect";
 import { dateStamp } from "@/utils/calendar";
 import { Botanical } from "../ui/Botanical";
+import { Icon } from "../ui/Icon";
 export function InvitationFooter() {
   const [notice, setNotice] = useState(false);
   function visit(e: React.MouseEvent<HTMLAnchorElement>) {
@@ -38,11 +39,13 @@ export function InvitationFooter() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Joscity ↗
+            Joscity <Icon name="arrowUpRight" />
           </a>
-          <span aria-hidden="true">×</span>
+          <span aria-hidden="true">
+            <Icon name="diamond" />
+          </span>
           <a href={c.links.developer} target="_blank" rel="noopener noreferrer">
-            Developer William ↗
+            Developer William <Icon name="arrowUpRight" />
           </a>
         </div>
         {notice && (

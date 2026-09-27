@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { weddingConfig as c } from "@/config/wedding";
 import { Modal } from "../ui/Modal";
+import { Icon } from "../ui/Icon";
 export function GuestWish() {
   const [open, setOpen] = useState(false);
   const [message, setMessage] = useState("");
@@ -26,7 +27,7 @@ export function GuestWish() {
   return (
     <>
       <button className="wish-trigger text-link" onClick={() => setOpen(true)}>
-        Leave the Couple a Wish <span aria-hidden="true">↗</span>
+        Leave the Couple a Wish <Icon name="arrowUpRight" />
       </button>
       {open && (
         <Modal title="Words to treasure" onClose={() => setOpen(false)}>
@@ -62,7 +63,7 @@ export function GuestWish() {
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Send with WhatsApp ↗
+                    Send with WhatsApp <Icon name="arrowUpRight" />
                   </a>
                 ) : (
                   <button className="button" disabled type="button">

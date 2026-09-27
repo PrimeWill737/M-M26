@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useId, useRef } from "react";
 import { lockPageScroll } from "@/utils/scrollLock";
+import { Icon } from "./Icon";
 export function Modal({
   title,
   onClose,
@@ -43,7 +44,7 @@ export function Modal({
           onClick={onClose}
           aria-label="Close dialog"
         >
-          ×
+          <Icon name="close" />
         </button>
         <span className="eyebrow">{eyebrow}</span>
         <h2 id={titleId}>{title}</h2>

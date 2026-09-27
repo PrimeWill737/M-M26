@@ -1,6 +1,7 @@
 import { weddingConfig as c } from "@/config/wedding";
 import { displayDate, displayWeekday } from "@/utils/calendar";
 import { Botanical } from "../ui/Botanical";
+import { Icon } from "../ui/Icon";
 export function Hero() {
   return (
     <section className="hero" id="home">
@@ -26,7 +27,9 @@ export function Hero() {
         </div>
         <a href="#families" className="scroll-cue">
           <span>Our forever starts here</span>
-          <span aria-hidden="true">↓</span>
+          <span aria-hidden="true">
+            <Icon name="arrowDown" />
+          </span>
         </a>
       </div>
       <div className="hero-bottom">
