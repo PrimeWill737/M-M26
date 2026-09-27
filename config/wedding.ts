@@ -42,6 +42,13 @@ export interface WeddingConfig {
   links: { website: string; android: string; ios: string; developer: string };
   siteUrl: string;
 }
+const configuredMusic = process.env.NEXT_PUBLIC_MUSIC_SRC ?? "";
+const musicSrc =
+  configuredMusic === "off"
+    ? ""
+    : configuredMusic.startsWith("/") || configuredMusic.startsWith("http")
+      ? configuredMusic
+      : "/audio/invitation.mp3";
 export const weddingConfig: WeddingConfig = {
   brand: {
     monogram: "M&M26",
@@ -117,7 +124,7 @@ export const weddingConfig: WeddingConfig = {
     },
     
   ],
-  music: { src: process.env.NEXT_PUBLIC_MUSIC_SRC === "off" ? "" : process.env.NEXT_PUBLIC_MUSIC_SRC || "/audio/forever-in-bloom.wav" },
+  music: { src: musicSrc },
   guestWish: {},
   links: {
     website: process.env.NEXT_PUBLIC_JOSCITY_WEBSITE_URL || "",
