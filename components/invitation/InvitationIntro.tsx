@@ -37,7 +37,6 @@ export function InvitationIntro({ onOpen }: { onOpen: () => void }) {
           Together with their families
         </span>
         <div className="intro-families">
-          <span>Family of</span>
           <p>{c.families.bride}</p>
           <em>and</em>
           <p>{c.families.groom}</p>

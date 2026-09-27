@@ -60,7 +60,7 @@ export const weddingConfig: WeddingConfig = {
   },
   families: {
     bride: "Pastor & Mrs Bosworth Onoja",
-    groom: "Mr & Mrs Agbakansi Gabriel Chukwujekwu",
+    groom: "Mr & Mrs Gabriel Agbakansi Chukwujekwu",
   },
   wedding: {
     id: "wedding",
@@ -80,7 +80,7 @@ export const weddingConfig: WeddingConfig = {
     id: "traditional",
     label: "The Traditional Celebration",
     date: "2026-12-18",
-    time: "14:00",
+    time: "13:00",
     timezone: "Africa/Lagos",
     utcOffset: "+01:00",
     venue: "Millennium Conference Centre",

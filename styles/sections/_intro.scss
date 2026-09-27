@@ -3,8 +3,13 @@
   inset: 0;
   z-index: 100;
   display: grid;
-  place-items: center;
-  padding: 20px;
+  place-items: safe center;
+  height: 100dvh;
+  padding:
+    max(24px, env(safe-area-inset-top))
+    max(16px, env(safe-area-inset-right))
+    max(24px, env(safe-area-inset-bottom))
+    max(16px, env(safe-area-inset-left));
   overflow-y: auto;
   overflow-x: hidden;
   background: #e9e7dc;
@@ -25,6 +30,8 @@
 .intro-frame {
   position: relative;
   width: min(100%, 760px);
+  margin-block: auto;
+  justify-self: center;
   text-align: center;
   border: 1px solid #a9b29c;
   outline: 1px solid #d1d4c5;
@@ -170,9 +177,6 @@
   }
 }
 @media (max-height: 740px) {
-  .intro {
-    align-items: start;
-  }
   .intro-frame {
     padding-block: 24px;
   }

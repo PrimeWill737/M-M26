@@ -40,9 +40,6 @@ export function EventCard({
         <p className="event-time">
           {displayTime(event)} <span>WAT</span>
         </p>
-        {!event.timeConfirmed && (
-          <p className="small-note">Time to be confirmed</p>
-        )}
         <div className="venue">
           <h3>{event.venue}</h3>
           <p>{event.address}</p>
