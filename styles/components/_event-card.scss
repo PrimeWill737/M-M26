@@ -1,0 +1,146 @@
+@use "../abstracts/variables" as v;
+.ceremony {
+  display: grid;
+  gap: 44px;
+  max-width: 1320px;
+  margin: auto;
+  padding-top: 70px;
+  padding-bottom: 90px;
+}
+.event-art {
+  position: relative;
+  min-height: 330px;
+  background: #dce2d4;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 40px 20px;
+  border-radius: 180px 180px 0 0;
+  outline: 1px solid #8f9c80;
+  outline-offset: -14px;
+  .botanical {
+    position: absolute;
+    height: 95%;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%) rotate(10deg);
+    color: #5b6b50;
+    width: 70%;
+  }
+  .art-monogram {
+    position: relative;
+    font-size: clamp(55px, 7vw, 84px);
+    font-style: italic;
+    letter-spacing: -0.07em;
+    line-height: 1.3;
+    color: #3e553c;
+  }
+  .art-caption {
+    font-family: var(--font-sans);
+    letter-spacing: 0.18em;
+    font-size: 7px;
+    position: relative;
+  }
+}
+.event-content {
+  h2 {
+    margin: 16px 0 26px;
+    max-width: 530px;
+  }
+  .event-date {
+    font-size: 24px;
+    line-height: 1.35;
+  }
+  .event-time {
+    font-size: 30px;
+    margin-top: 12px;
+    span {
+      font-family: var(--font-sans);
+      font-size: 9px;
+      letter-spacing: 0.15em;
+    }
+  }
+  .venue {
+    border-top: 1px solid #c9ccbf;
+    margin-top: 25px;
+    padding-top: 25px;
+    h3 {
+      font-size: 29px;
+      margin-bottom: 7px;
+    }
+    p {
+      max-width: 330px;
+    }
+  }
+  .colors-label {
+    margin-top: 26px;
+    margin-bottom: 3px;
+  }
+}
+.mini-swatches {
+  display: flex;
+  gap: 7px;
+  margin-top: 14px;
+  i {
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    border: 1px solid #00000012;
+  }
+}
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px 25px;
+  margin-top: 29px;
+}
+.ceremony--warm {
+  background: linear-gradient(#f5f2e9, #eee4d6);
+  max-width: none;
+  color: #714735;
+  .event-art {
+    background: #dcc5aa;
+    outline-color: #b79375;
+    .botanical {
+      color: #a26847;
+      transform: translateX(-50%) rotate(-15deg);
+    }
+    .art-monogram {
+      color: #875435;
+    }
+  }
+  .button {
+    background: #955036;
+    border-color: #955036;
+  }
+  .venue {
+    border-color: #d7c5b4;
+  }
+}
+@media (min-width: 768px) {
+  .ceremony {
+    grid-template-columns: 0.9fr 1fr;
+    gap: 70px;
+    align-items: center;
+  }
+  .event-art {
+    min-height: 580px;
+  }
+  .ceremony--warm {
+    padding-inline: max(64px, calc((100vw - 1192px) / 2));
+    .event-art {
+      order: 2;
+    }
+  }
+}
+@media (min-width: 1100px) {
+  .ceremony {
+    gap: 110px;
+    padding-inline: 100px;
+  }
+  .ceremony--warm {
+    padding-inline: max(100px, calc((100vw - 1120px) / 2));
+  }
+}

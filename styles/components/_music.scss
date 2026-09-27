@@ -1,0 +1,181 @@
+@use "../abstracts/variables" as v;
+.music-prompt {
+  width: min(420px, calc(100% - 32px));
+  border-radius: 160px 160px 18px 18px;
+  text-align: center;
+  box-shadow: 0 24px 80px #263e3026;
+  animation: music-welcome 0.5s ease both;
+  &::backdrop {
+    background: #293d304d;
+    backdrop-filter: blur(3px);
+  }
+  .modal-content {
+    padding: 62px 28px 32px;
+  }
+  .close-button {
+    top: 20px;
+    right: calc(50% - 16px);
+    width: 32px;
+    height: 32px;
+    padding: 0 0 1px;
+    display: grid;
+    place-items: center;
+    font-family: var(--font-sans), sans-serif;
+    font-size: 18px;
+    line-height: 1;
+    color: v.$plum;
+    background: #efe8f1;
+    border: 1px solid #c6b8cd;
+    border-radius: 50%;
+    box-shadow: 0 2px 8px #69516e14;
+    transition:
+      background 0.2s,
+      transform 0.2s;
+    &:hover {
+      background: #e4d8e8;
+      transform: translateY(-1px);
+    }
+    &:focus-visible {
+      outline-offset: 3px;
+    }
+  }
+  h2 {
+    font-size: clamp(34px, 6vw, 44px);
+    line-height: 1.04;
+    margin: 18px 0;
+  }
+  .eyebrow {
+    font-size: 8px;
+  }
+  p {
+    font-size: 18px;
+    line-height: 1.45;
+  }
+  .small-note {
+    font-size: 13px;
+    font-style: italic;
+    max-width: 220px;
+    margin: 12px auto 0;
+  }
+}
+.music-prompt-seal {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  margin: 22px auto;
+  background: #e5dfe9;
+  color: v.$plum;
+  border: 1px solid #c6b8cd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  outline: 1px solid #d6cddd;
+  outline-offset: 5px;
+  span:first-child {
+    font-size: 32px;
+    transform: rotate(-15deg);
+  }
+  span:last-child {
+    font-size: 20px;
+    transform: translateY(-6px) rotate(12deg);
+  }
+}
+.music-prompt-actions {
+  display: grid;
+  gap: 6px;
+  margin-top: 25px;
+  .button {
+    border-radius: 30px;
+    min-height: 48px;
+  }
+}
+.music {
+  position: fixed;
+  z-index: 110;
+  right: 16px;
+  top: 16px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+    min-height: 44px;
+    background: v.$ivory;
+    border: 1px solid v.$line;
+    border-radius: 30px;
+    padding: 10px 16px;
+    box-shadow: 0 4px 18px #294a3e0d;
+  }
+  .music-error {
+    position: absolute;
+    right: 0;
+    top: 52px;
+    width: 200px;
+    padding: 12px;
+    background: v.$ivory;
+    border: 1px solid v.$line;
+  }
+}
+.music-error {
+  font-size: 13px !important;
+  color: #8b403a;
+  margin-top: 12px;
+}
+.music-bars {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  height: 18px;
+  i {
+    width: 2px;
+    height: 5px;
+    background: v.$forest;
+    border-radius: 2px;
+  }
+  &.is-playing i {
+    height: 14px;
+    animation: music-level 1s ease-in-out infinite alternate;
+    &:nth-child(2) {
+      animation-delay: -0.4s;
+    }
+    &:nth-child(3) {
+      animation-delay: -0.7s;
+    }
+  }
+}
+@keyframes music-welcome {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes music-level {
+  from {
+    transform: scaleY(0.35);
+  }
+  to {
+    transform: scaleY(1);
+  }
+}
+@media (max-height: 600px) {
+  .music-prompt {
+    border-radius: 24px;
+    .modal-content {
+      padding-top: 38px;
+    }
+    .close-button {
+      top: 8px;
+      right: 8px;
+    }
+    .music-prompt-seal {
+      display: none;
+    }
+  }
+}

@@ -1,0 +1,190 @@
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  padding: 20px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background: #e9e7dc;
+}
+.paper-panel {
+  position: fixed;
+  inset-block: 0;
+  width: 50.1%;
+  background: #f5f2e9;
+  transition: transform 1.15s cubic-bezier(0.76, 0, 0.24, 1);
+  &--left {
+    left: 0;
+  }
+  &--right {
+    right: 0;
+  }
+}
+.intro-frame {
+  position: relative;
+  width: min(100%, 760px);
+  text-align: center;
+  border: 1px solid #a9b29c;
+  outline: 1px solid #d1d4c5;
+  outline-offset: -8px;
+  padding: clamp(26px, 5vh, 58px) 22px 26px;
+  transition:
+    opacity 0.4s,
+    transform 0.7s;
+}
+.intro-botanical {
+  position: absolute;
+  height: 62%;
+  width: 45%;
+  right: -30px;
+  top: 10%;
+  opacity: 0.19;
+  transform: rotate(16deg);
+}
+.intro-kicker {
+  position: relative;
+}
+.intro-families {
+  position: relative;
+  margin: 22px auto 0;
+  max-width: 380px;
+  font-size: 18px;
+  line-height: 1.35;
+  > span {
+    font-size: 13px;
+  }
+  p {
+    font-size: 19px;
+  }
+  em {
+    display: block;
+    font-size: 16px;
+    margin: 4px 0;
+    color: #8b7690;
+  }
+}
+.intro-invite {
+  font-size: 15px;
+  margin-top: 23px;
+  font-style: italic;
+}
+.intro-names {
+  position: relative;
+  margin: 20px 0;
+  font-family: var(--font-script), cursive;
+  font-size: clamp(36px, 5.5vw, 66px);
+  line-height: 1.15;
+  font-weight: 400;
+  animation: name-reveal 1.5s ease both;
+  span {
+    font-family: var(--font-serif);
+    display: block;
+    font-size: 27px;
+    color: #89708a;
+    margin: 2px 0;
+  }
+}
+.intro-stamp {
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  margin-top: 22px;
+}
+.seal-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25px auto 6px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  color: #e6e5d2;
+  background: #526449;
+  border: 4px double #859076;
+  outline: 1px solid #67795c;
+  box-shadow:
+    0 4px 10px #31443a24,
+    inset 0 0 14px #263f302b;
+  transform: rotate(-9deg);
+  font-size: 19px;
+  font-style: italic;
+  transition: transform 0.3s;
+  span:last-child {
+    font-size: 14px;
+    line-height: 1;
+  }
+  &:hover {
+    transform: rotate(0) scale(1.04);
+  }
+}
+.intro-open {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  margin: 0 auto;
+  background: transparent;
+  border: 0;
+  min-height: 44px;
+  font-family: var(--font-sans);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+.intro-footnote {
+  font-size: 12px;
+  font-style: italic;
+  color: #767c6e;
+}
+.intro--opening {
+  pointer-events: none;
+  background: transparent;
+  .paper-panel--left {
+    transform: translateX(-100%);
+  }
+  .paper-panel--right {
+    transform: translateX(100%);
+  }
+  .intro-frame {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+}
+@keyframes name-reveal {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+    clip-path: inset(0 0 100% 0);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    clip-path: inset(0);
+  }
+}
+@media (max-height: 740px) {
+  .intro {
+    align-items: start;
+  }
+  .intro-frame {
+    padding-block: 24px;
+  }
+  .intro-families {
+    margin-top: 14px;
+  }
+  .intro-invite {
+    margin-top: 14px;
+  }
+  .intro-names {
+    margin-block: 13px;
+  }
+  .seal-button {
+    margin-top: 17px;
+    width: 65px;
+    height: 65px;
+  }
+}

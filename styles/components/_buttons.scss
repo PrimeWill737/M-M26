@@ -1,0 +1,39 @@
+@use "../abstracts/variables" as v;
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  min-height: 48px;
+  padding: 14px 24px;
+  background: v.$forest;
+  border: 1px solid v.$forest;
+  color: v.$ivory;
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.13em;
+  font-size: 9px;
+  transition:
+    background 0.25s,
+    transform 0.25s;
+  &:hover {
+    background: #3f5d4e;
+    transform: translateY(-2px);
+  }
+}
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 0;
+  gap: 8px;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+  border: 0;
+  background: transparent;
+  &:hover {
+    color: v.$plum;
+  }
+}

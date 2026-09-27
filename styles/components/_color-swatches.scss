@@ -1,0 +1,55 @@
+.swatch-group {
+  margin-top: 26px;
+}
+.swatches {
+  display: grid;
+  grid-template-columns: repeat(4, 44px);
+  justify-content: center;
+  gap: 8px;
+}
+.swatch {
+  position: relative;
+  width: 44px;
+  height: 46px;
+  border: 4px solid #f5f2e9;
+  border-radius: 50%;
+  transition: transform 0.2s;
+  outline: 1px solid transparent;
+  &[aria-pressed="true"] {
+    outline-color: #626c56;
+  }
+  span {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    background: #31443a;
+    color: #fff;
+    padding: 5px 8px;
+    font-family: var(--font-sans);
+    font-size: 9px;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+  }
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-3px);
+    span {
+      opacity: 1;
+    }
+  }
+}
+.shade-name {
+  min-height: 25px;
+  margin-top: 12px;
+  font-size: 14px;
+  font-style: italic;
+  color: #6a7061;
+}
+@media (min-width: 768px) {
+  .swatch {
+    width: 44px;
+    height: 48px;
+  }
+}

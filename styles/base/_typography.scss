@@ -1,0 +1,43 @@
+@use "../abstracts/variables" as v;
+body {
+  font-family: var(--font-serif), Georgia, serif;
+  font-size: 19px;
+  line-height: 1.6;
+  color: v.$ink;
+  -webkit-font-smoothing: antialiased;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-weight: 400;
+  line-height: 1.08;
+}
+h2 {
+  font-size: clamp(38px, 5vw, 64px);
+  letter-spacing: -0.035em;
+}
+h3 {
+  font-size: 30px;
+}
+em {
+  font-weight: 400;
+}
+.eyebrow {
+  display: block;
+  font-family: var(--font-sans), sans-serif;
+  font-size: 9px;
+  font-weight: 500;
+  line-height: 1.8;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+.small-note {
+  font-size: 14px;
+  color: v.$muted;
+}
+.text-link {
+  font-family: var(--font-sans), sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+}

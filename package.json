@@ -1,0 +1,38 @@
+{
+  "name": "mm26-wedding-invitation",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --hostname 0.0.0.0",
+    "build": "next build",
+    "start": "next start --hostname 0.0.0.0",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test tests/unit",
+    "test:browser": "bun run scripts/browser-check.ts",
+    "social-card": "bun run scripts/create-social-card.ts",
+    "format": "prettier --write app components config hooks utils styles scripts tests",
+    "test:webkit": "bun run scripts/webkit-check.ts",
+    "test:music": "bun run scripts/music-check.ts"
+  },
+  "dependencies": {
+    "next": "16.3.6",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "sass": "1.105.0"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0",
+    "@types/bun": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.6",
+    "prettier": "^3.9.9",
+    "sharp": "^0.35.5",
+    "typescript": "^5.9"
+  },
+  "packageManager": "bun@1.4.2"
+}

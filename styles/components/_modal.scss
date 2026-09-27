@@ -1,0 +1,54 @@
+.modal {
+  border: 1px solid #b6bca8;
+  background: #f5f2e9;
+  color: #31443a;
+  padding: 0;
+  width: min(560px, calc(100% - 32px));
+  max-height: calc(100dvh - 40px);
+  overflow-y: auto;
+  &::backdrop {
+    background: #1f3229a6;
+    backdrop-filter: blur(5px);
+  }
+}
+.modal-content {
+  padding: 50px 26px 30px;
+  position: relative;
+  h2 {
+    margin: 13px 0 20px;
+    font-size: 42px;
+  }
+  form {
+    display: grid;
+    gap: 12px;
+    margin-top: 25px;
+  }
+  label {
+    font-size: 17px;
+  }
+  textarea {
+    width: 100%;
+    resize: vertical;
+    border: 1px solid #a7b09a;
+    border-radius: 0;
+    padding: 14px;
+    background: #fffdf6;
+    color: #31443a;
+    font-size: 18px;
+  }
+}
+.close-button {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: transparent;
+  border: 0;
+  font-size: 30px;
+  height: 44px;
+  width: 44px;
+}
+@media (min-width: 768px) {
+  .modal-content {
+    padding: 50px;
+  }
+}

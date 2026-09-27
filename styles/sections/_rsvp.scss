@@ -1,0 +1,36 @@
+.rsvp {
+  text-align: center;
+}
+.contacts {
+  display: grid;
+  gap: 18px;
+  margin: 40px auto 24px;
+  max-width: 850px;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr));
+}
+.contact {
+  padding: 30px 20px;
+  border-top: 1px solid #bcc5b1;
+  border-bottom: 1px solid #bcc5b1;
+  transition: background 0.25s;
+  h3 {
+    font-size: 28px;
+    margin: 17px 0 14px;
+  }
+  &:hover {
+    background: #e9ecdf;
+  }
+}
+.contact-number {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 24px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  text-decoration: underline;
+  text-underline-offset: 5px;
+}
+.wish-trigger {
+  margin-top: 16px;
+}

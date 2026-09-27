@@ -1,0 +1,72 @@
+.closing {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+  background: #e7eadd;
+  .botanical {
+    position: absolute;
+    height: 105%;
+    width: 340px;
+    left: 50%;
+    top: -5%;
+    transform: translateX(-50%) rotate(30deg);
+    opacity: 0.17;
+  }
+  > :not(svg) {
+    position: relative;
+  }
+  h2 {
+    font-size: 33px;
+    margin-bottom: 20px;
+  }
+}
+.closing-monogram {
+  font-size: clamp(75px, 15vw, 145px);
+  font-style: italic;
+  letter-spacing: -0.08em;
+  line-height: 1.3;
+  margin-block: 15px;
+}
+.closing-line {
+  font-style: italic;
+  font-size: 21px;
+  margin-top: 30px;
+}
+.footer {
+  padding: 40px 20px 105px;
+  text-align: center;
+  background: #294438;
+  color: #e8ebdf;
+  > span:first-child {
+    font-size: 15px;
+    font-style: italic;
+    opacity: 0.8;
+  }
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 6px;
+    a {
+      display: inline-flex;
+      align-items: center;
+      min-height: 44px;
+      text-decoration: underline;
+      text-underline-offset: 6px;
+      font-size: 18px;
+    }
+    > span {
+      color: #acb49b;
+    }
+  }
+  .footer-note {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 7px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-top: 25px;
+  }
+}

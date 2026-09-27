@@ -1,0 +1,77 @@
+@use "../abstracts/variables" as v;
+body {
+  background: v.$ivory;
+}
+body::before {
+  position: fixed;
+  inset: 0;
+  content: "";
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.14;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Cpath fill='%23867e69' filter='url(%23n)' opacity='.3' d='M0 0h180v180H0z'/%3E%3C/svg%3E");
+}
+.section {
+  padding: 82px 24px;
+  scroll-margin-top: 30px;
+}
+.section-heading {
+  margin-bottom: 22px;
+  .eyebrow {
+    margin-bottom: 18px;
+  }
+}
+.little-flower {
+  display: block;
+  font-size: 23px;
+  color: #8c967e;
+  margin-top: 22px;
+}
+.botanical {
+  color: #7b866f;
+  pointer-events: none;
+}
+.reveal-ready {
+  opacity: 0;
+  transform: translateY(22px);
+  transition:
+    opacity 1s ease,
+    transform 1s ease;
+}
+.reveal-ready.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+.scroll-progress {
+  position: fixed;
+  inset: 0 0 auto;
+  height: 3px;
+  transform: scaleX(0);
+  transform-origin: left;
+  background: #785f7d;
+  z-index: 70;
+}
+.quote {
+  text-align: center;
+  background: #e9e8df;
+  padding-block: 90px;
+  blockquote {
+    font-size: clamp(35px, 5vw, 61px);
+    line-height: 1.2;
+    margin: 27px 0;
+  }
+  em {
+    color: v.$plum;
+  }
+}
+.invitation {
+  overflow: clip;
+}
+@media (min-width: 768px) {
+  .section {
+    padding: 112px 64px;
+  }
+  .eyebrow {
+    font-size: 10px;
+  }
+}

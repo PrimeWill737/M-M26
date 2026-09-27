@@ -1,0 +1,11 @@
+@use "breakpoints" as b;
+@mixin tablet {
+  @media (min-width: b.$tablet) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: b.$desktop) {
+    @content;
+  }
+}

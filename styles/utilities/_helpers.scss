@@ -1,0 +1,35 @@
+.skip-link {
+  position: fixed;
+  z-index: 90;
+  left: 16px;
+  top: -100px;
+  padding: 12px 20px;
+  background: #294a3e;
+  color: white;
+  &:focus {
+    top: 16px;
+  }
+}
+.noscript-message {
+  position: fixed;
+  bottom: 0;
+  inset-inline: 0;
+  z-index: 110;
+  background: #294a3e;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  .reveal-ready {
+    opacity: 1;
+    transform: none;
+  }
+}
