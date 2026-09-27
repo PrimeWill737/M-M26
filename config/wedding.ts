@@ -122,6 +122,11 @@ export const weddingConfig: WeddingConfig = {
       phone: "08038801128",
       international: "2348038801128",
     },
+    {
+      name: "Joseph Azumara",
+      phone: "08133948394",
+      international: "2348133948394",
+    },
     
   ],
   music: { src: musicSrc },
