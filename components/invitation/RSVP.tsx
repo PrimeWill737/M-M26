@@ -27,7 +27,7 @@ export function RSVP() {
             </span>
             <h3>{contact.name}</h3>
             <span className="contact-number">
-              {contact.phone} <Icon name="arrowUpRight" />
+              Click <Icon name="arrowUpRight" />
             </span>
           </a>
         ))}
