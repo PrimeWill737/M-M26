@@ -25,7 +25,7 @@ export function Hero() {
           <strong>{displayDate(c.wedding)}</strong>
           <span>{c.brand.location}</span>
         </div>
-        <a href="#families" className="scroll-cue">
+        <a href="#countdown" className="scroll-cue">
           <span>Our forever starts here</span>
           <span aria-hidden="true">
             <Icon name="arrowDown" />

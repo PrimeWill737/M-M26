@@ -80,17 +80,25 @@
 .intro-names {
   position: relative;
   margin: 20px 0;
-  font-family: var(--font-script), cursive;
+  font-family: var(--font-serif);
   font-size: clamp(36px, 5.5vw, 66px);
   line-height: 1.15;
   font-weight: 400;
   animation: name-reveal 1.5s ease both;
-  span {
+  .intro-amp {
     font-family: var(--font-serif);
     display: block;
     font-size: 27px;
     color: #89708a;
     margin: 2px 0;
+  }
+  .intro-name {
+    display: block;
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: clamp(32px, 5vw, 52px);
+    line-height: 1.05;
+    letter-spacing: -0.03em;
   }
 }
 .intro-stamp {

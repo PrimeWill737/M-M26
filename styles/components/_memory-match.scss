@@ -1,0 +1,169 @@
+@use "../abstracts/variables" as v;
+
+.memory-match {
+  text-align: center;
+  background: #f3f0e6;
+  padding-block: 48px 36px;
+
+  .section-heading {
+    margin-bottom: 8px;
+
+    .little-flower {
+      margin-top: 8px;
+    }
+  }
+
+  > p {
+    max-width: 440px;
+    margin-inline: auto;
+  }
+}
+
+.memory-status {
+  margin-top: 10px;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: v.$muted;
+}
+
+.memory-board {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 8px;
+  width: min(100%, 420px);
+  margin: 14px auto 8px;
+}
+
+.memory-card {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  perspective: 700px;
+  aspect-ratio: 3 / 4;
+  cursor: pointer;
+
+  &[aria-disabled="true"] {
+    cursor: default;
+  }
+}
+
+.memory-card-inner {
+  display: grid;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.35s ease;
+}
+
+.memory-card.is-up .memory-card-inner {
+  transform: rotateY(180deg);
+}
+
+.memory-face {
+  grid-area: 1 / 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  border: 1px solid #b6bca8;
+  background: #f8f5ed;
+  backface-visibility: hidden;
+  box-shadow: 0 6px 14px #294a3e10;
+}
+
+.memory-face--back {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 18px;
+  color: v.$plum;
+  background: #efe8f1;
+}
+
+.memory-face--front {
+  transform: rotateY(180deg);
+  font-family: var(--font-serif);
+  font-size: 14px;
+  letter-spacing: 0.04em;
+}
+
+.memory-mark {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+}
+
+.tone-rose .memory-mark {
+  background: v.$terracotta;
+}
+
+.tone-leaf .memory-mark {
+  background: v.$forest;
+  border-radius: 50% 0;
+}
+
+.tone-bell .memory-mark {
+  background: v.$plum;
+  border-radius: 50% 50% 8px 8px;
+}
+
+.tone-ring .memory-mark {
+  background: transparent;
+  border: 3px solid #8d7344;
+  border-radius: 50%;
+}
+
+.tone-dove .memory-mark {
+  background: #d7dde4;
+  border-radius: 50% 50% 50% 12px;
+}
+
+.tone-bow .memory-mark {
+  width: 22px;
+  height: 12px;
+  background: #a45133;
+  border-radius: 40% 40% 50% 50%;
+}
+
+.memory-card.is-wrong .memory-face--front {
+  border-color: v.$terracotta;
+}
+
+.memory-card.is-matched .memory-face--front {
+  background: #e7efe8;
+  border-color: #8eae98;
+}
+
+.memory-blessing {
+  max-width: 420px;
+  margin: 16px auto 12px;
+  font-family: var(--font-serif);
+  font-size: clamp(20px, 4.2vw, 26px);
+  line-height: 1.35;
+  color: v.$forest;
+}
+
+.memory-match .button {
+  margin-top: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .memory-card-inner,
+  .memory-card.is-up .memory-card-inner {
+    transform: none;
+    transition: none;
+  }
+
+  .memory-face--front {
+    display: none;
+    transform: none;
+  }
+
+  .memory-card.is-up .memory-face--back {
+    display: none;
+  }
+
+  .memory-card.is-up .memory-face--front {
+    display: flex;
+  }
+}

@@ -5,7 +5,7 @@ import { weddingConfig } from "@/config/wedding";
 export function Countdown() {
   const time = useCountdown(eventInstant(weddingConfig.wedding).getTime());
   return (
-    <section className="countdown section reveal">
+    <section className="countdown section reveal" id="countdown">
       <span className="eyebrow">Every moment brings us closer</span>
       <h2>
         {time?.finished ? "Today, Forever Begins." : "Until Forever Begins"}

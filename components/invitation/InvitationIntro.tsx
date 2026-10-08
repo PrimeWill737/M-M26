@@ -45,9 +45,9 @@ export function InvitationIntro({ onOpen }: { onOpen: () => void }) {
           joyfully invite you to celebrate the union of
         </p>
         <h1 className="intro-names">
-          {c.brand.bride}
-          <span>&</span>
-          {c.brand.groom}
+          <span className="intro-name">{c.brand.bride}</span>
+          <span className="intro-amp">&</span>
+          <span className="intro-name">{c.brand.groom}</span>
         </h1>
         <div className="intro-stamp">{dateStamp(c.wedding)}</div>
         <button

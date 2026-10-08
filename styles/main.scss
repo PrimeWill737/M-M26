@@ -5,6 +5,7 @@
 @use "components/icons";
 @use "components/countdown";
 @use "components/scratch-card";
+@use "components/memory-match";
 @use "components/event-card";
 @use "components/navigation";
 @use "components/modal";
@@ -12,7 +13,6 @@
 @use "components/color-swatches";
 @use "sections/intro";
 @use "sections/hero";
-@use "sections/families";
 @use "sections/dress-code";
 @use "sections/rsvp";
 @use "sections/footer";

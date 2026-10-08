@@ -1,8 +1,8 @@
 import { InvitationExperience } from "@/components/invitation/InvitationExperience";
 import { Hero } from "@/components/invitation/Hero";
-import { FamilyInvitation } from "@/components/invitation/FamilyInvitation";
 import { Countdown } from "@/components/invitation/Countdown";
 import { ScratchReveal } from "@/components/invitation/ScratchReveal";
+import { MemoryMatch } from "@/components/invitation/MemoryMatch";
 import { EventCard } from "@/components/ui/EventCard";
 import { DressCode } from "@/components/invitation/DressCode";
 import { RSVP } from "@/components/invitation/RSVP";
@@ -14,9 +14,9 @@ export default function Home() {
     <InvitationExperience>
       <main>
         <Hero />
-        <FamilyInvitation />
         <Countdown />
         <ScratchReveal />
+        <MemoryMatch />
         <EventCard event={c.wedding} />
         <EventCard event={c.traditional} warm />
         <DressCode />
