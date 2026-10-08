@@ -132,9 +132,10 @@ export const weddingConfig: WeddingConfig = {
   music: { src: musicSrc },
   guestWish: {},
   links: {
-    website: process.env.NEXT_PUBLIC_JOSCITY_WEBSITE_URL || "",
-    android: process.env.NEXT_PUBLIC_JOSCITY_ANDROID_URL || "",
-    ios: process.env.NEXT_PUBLIC_JOSCITY_IOS_URL || "",
+    website: "https://joscity.com",
+    android:
+      "https://play.google.com/store/apps/details?id=com.joscity.app&pcampaignid=web_share",
+    ios: "https://apps.apple.com/ng/app/joscity/id6805214004",
     developer: "https://william-lac.vercel.app",
   },
   siteUrl: process.env.NEXT_PUBLIC_SITE_URL || "",
