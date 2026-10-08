@@ -20,7 +20,7 @@ const blessings = [
   "May you dance in the sitting room when no one else is watching.",
   "May the God who brought you together keep you gentle with each other.",
   "May your names sound sweet in each other’s mouth for all the years to come.",
-  "May Meda and Marrion find rest in one another after every long day.",
+  "May Marrion & Meda find rest in one another after every long day.",
   "May your marriage be a garden: watered, weeded, and still full of surprise.",
   "May friends become family, and family remain a joy to welcome.",
   "May you keep a little mischief, and a great deal of mercy.",
@@ -34,7 +34,7 @@ const blessings = [
   "May your union be a light for the families who stood behind you today.",
   "May you wake grateful, and sleep knowing you are loved.",
   "May nothing you build together be too heavy for two willing hearts.",
-  "May forever, for Meda and Marrion, be a daily kindness.",
+  "May forever, for Marrion & Meda, be a daily kindness.",
 ];
 
 const kinds = [

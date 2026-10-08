@@ -52,10 +52,10 @@ const musicSrc =
 export const weddingConfig: WeddingConfig = {
   brand: {
     monogram: "M&M26",
-    bride: "Meda Bosworth",
     groom: "Marrion Agbakansi",
-    brideFirst: "Meda",
+    bride: "Meda Bosworth",
     groomFirst: "Marrion",
+    brideFirst: "Meda",
     location: "Jos, Plateau State",
   },
   families: {
