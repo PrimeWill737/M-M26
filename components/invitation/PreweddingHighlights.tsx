@@ -1,25 +1,44 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useRef } from "react";
 import { weddingConfig } from "@/config/wedding";
 import { SectionHeading } from "../ui/SectionHeading";
 
 export function PreweddingHighlights() {
-  const [active, setActive] = useState<string | null>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const sectionRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const pauseOnScroll = () => videoRef.current?.pause();
+    const videos = sectionRef.current?.querySelectorAll("video");
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          const video = entry.target as HTMLVideoElement;
+          video.src = video.dataset.src!;
+          video.poster = video.dataset.poster!;
+          observer.unobserve(video);
+        });
+      },
+      { rootMargin: "200px" },
+    );
+    videos?.forEach((video) => observer.observe(video));
+    const pauseOnScroll = () => videos?.forEach((video) => video.pause());
     window.addEventListener("scroll", pauseOnScroll, {
       passive: true,
       capture: true,
     });
-    return () => window.removeEventListener("scroll", pauseOnScroll, true);
+    return () => {
+      observer.disconnect();
+      window.removeEventListener("scroll", pauseOnScroll, true);
+    };
   }, []);
 
   return (
-    <section id="highlights" className="highlights section reveal">
+    <section
+      ref={sectionRef}
+      id="highlights"
+      className="highlights section reveal"
+    >
       <SectionHeading eyebrow="Before we say I do">
         Our prewedding highlights
       </SectionHeading>
@@ -28,45 +47,28 @@ export function PreweddingHighlights() {
         {weddingConfig.highlights.map((clip, index) => (
           <figure className="highlight" key={clip.id}>
             <div className="highlight-media">
-              {active === clip.id ? (
-                <video
-                  ref={videoRef}
-                  src={clip.src}
-                  poster={clip.poster}
-                  controls
-                  autoPlay
-                  playsInline
-                  preload="none"
-                  aria-label={clip.title}
-                  onPlay={() => {
-                    document
-                      .querySelectorAll("audio")
-                      .forEach((audio) => audio.pause());
-                  }}
-                >
-                  Your browser does not support video playback.
-                  <a href={clip.src}>Open {clip.title}</a>
-                </video>
-              ) : (
-                <button
-                  className="highlight-play"
-                  onClick={() => setActive(clip.id)}
-                  aria-label={`Play prewedding highlight: ${clip.title}`}
-                >
-                  <Image
-                    src={clip.poster}
-                    alt=""
-                    fill
-                    unoptimized
-                    loading="lazy"
-                    sizes="(min-width: 900px) 33vw, 100vw"
-                  />
-                  <span className="highlight-play-icon" aria-hidden="true">
-                    ▶
-                  </span>
-                  <span className="highlight-play-label">Watch film</span>
-                </button>
-              )}
+              <video
+                data-src={clip.src}
+                data-poster={clip.poster}
+                controls
+                playsInline
+                preload="none"
+                aria-label={clip.title}
+                onPlay={(event) => {
+                  const playingVideo = event.currentTarget;
+                  sectionRef.current
+                    ?.querySelectorAll("video")
+                    .forEach((video) => {
+                      if (video !== playingVideo) video.pause();
+                    });
+                  document
+                    .querySelectorAll("audio")
+                    .forEach((audio) => audio.pause());
+                }}
+              >
+                Your browser does not support video playback.
+                <a href={clip.src}>Open {clip.title}</a>
+              </video>
             </div>
             <figcaption>
               <span className="eyebrow">0{index + 1} / Prewedding</span>
