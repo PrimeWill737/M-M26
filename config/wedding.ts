@@ -142,12 +142,6 @@ export const weddingConfig: WeddingConfig = {
       src: "/videos/black-outfit.mp4",
       poster: "/videos/black-outfit.jpg",
     },
-    {
-      id: "white-outfit",
-      title: "A glimpse of forever",
-      src: "/videos/white-outfit.mp4",
-      poster: "/videos/white-outfit.jpg",
-    },
   ],
   guestWish: {},
   links: {
