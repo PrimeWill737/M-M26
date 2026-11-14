@@ -73,6 +73,14 @@ export function PreweddingHighlights() {
             <figcaption>
               <span className="eyebrow">0{index + 1} / Prewedding</span>
               <h3>{clip.title}</h3>
+              <a
+                className="highlight-download"
+                href={clip.src}
+                download={`${clip.id}.mp4`}
+                aria-label={`Download ${clip.title}`}
+              >
+                Download video
+              </a>
             </figcaption>
           </figure>
         ))}
