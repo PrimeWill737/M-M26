@@ -38,6 +38,7 @@ export interface WeddingConfig {
   colors: { wedding: Shade[]; traditional: Shade[] };
   rsvpContacts: RSVPContact[];
   music: { src: string };
+  highlights: { id: string; title: string; src: string; poster: string }[];
   guestWish: { submit?: (message: string) => Promise<void> };
   links: { website: string; android: string; ios: string; developer: string };
   siteUrl: string;
@@ -85,8 +86,7 @@ export const weddingConfig: WeddingConfig = {
     utcOffset: "+01:00",
     venue: "Millennium Conference Centre",
     address: "Close to Amusement Park, Jos, Plateau State",
-    mapQuery:
-      "Millennium Conference Centre, Jos, Plateau State, Nigeria",
+    mapQuery: "Millennium Conference Centre, Jos, Plateau State, Nigeria",
     mapUrl: "https://maps.app.goo.gl/c2H9BB2MsQFKBtfY8",
     timeConfirmed: false,
     durationHours: 3,
@@ -127,9 +127,28 @@ export const weddingConfig: WeddingConfig = {
       phone: "08133948394",
       international: "2348133948394",
     },
-    
   ],
   music: { src: musicSrc },
+  highlights: [
+    {
+      id: "ankara",
+      title: "In our colours",
+      src: "/videos/ankara.mp4",
+      poster: "/videos/ankara.jpg",
+    },
+    {
+      id: "black-outfit",
+      title: "A little elegance",
+      src: "/videos/black-outfit.mp4",
+      poster: "/videos/black-outfit.jpg",
+    },
+    {
+      id: "white-outfit",
+      title: "A glimpse of forever",
+      src: "/videos/white-outfit.mp4",
+      poster: "/videos/white-outfit.jpg",
+    },
+  ],
   guestWish: {},
   links: {
     website: "https://joscity.com",

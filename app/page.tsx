@@ -5,6 +5,7 @@ import { ScratchReveal } from "@/components/invitation/ScratchReveal";
 import { MemoryMatch } from "@/components/invitation/MemoryMatch";
 import { EventCard } from "@/components/ui/EventCard";
 import { DressCode } from "@/components/invitation/DressCode";
+import { PreweddingHighlights } from "@/components/invitation/PreweddingHighlights";
 import { RSVP } from "@/components/invitation/RSVP";
 import { InvitationFooter } from "@/components/invitation/InvitationFooter";
 import { weddingConfig as c } from "@/config/wedding";
@@ -20,6 +21,7 @@ export default function Home() {
         <EventCard event={c.wedding} />
         <EventCard event={c.traditional} warm />
         <DressCode />
+        <PreweddingHighlights />
         <section className="quote section reveal">
           <span className="eyebrow">{c.brand.monogram}</span>
           <blockquote>
