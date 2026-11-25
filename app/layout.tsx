@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   description,
   ...(c.siteUrl ? { alternates: { canonical: c.siteUrl } } : {}),
   openGraph: {
-    title: `${c.brand.brideFirst} & ${c.brand.groomFirst} — ${c.brand.monogram}`,
+    title: `${c.brand.brideFirst} & ${c.brand.groomFirst} · ${c.brand.monogram}`,
     description,
     type: "website",
     locale: "en_NG",

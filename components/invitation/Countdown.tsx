@@ -15,7 +15,7 @@ export function Countdown() {
           {(["days", "hours", "minutes", "seconds"] as const).map((unit) => (
             <div key={unit}>
               <span className="countdown-number">
-                {time ? String(time[unit]).padStart(2, "0") : "—"}
+                {time ? String(time[unit]).padStart(2, "0") : "00"}
               </span>
               <span className="eyebrow">{unit}</span>
             </div>

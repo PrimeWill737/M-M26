@@ -18,3 +18,5 @@
 @use "sections/rsvp";
 @use "sections/footer";
 @use "utilities/helpers";
+@use "./sections/_album.scss";
+@use "./sections/_album-depth.scss";

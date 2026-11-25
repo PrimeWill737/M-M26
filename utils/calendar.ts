@@ -28,6 +28,6 @@ const stamp = (date: Date) =>
     .replace(/\.\d{3}Z$/, "Z");
 export function calendarUrl(event: Ceremony) {
   const start = eventInstant(event);
-  const title = `${weddingConfig.brand.brideFirst} & ${weddingConfig.brand.groomFirst} ${event.id === "wedding" ? "Wedding" : "Traditional Celebration"} — ${weddingConfig.brand.monogram}`;
+  const title = `${weddingConfig.brand.brideFirst} & ${weddingConfig.brand.groomFirst} ${event.id === "wedding" ? "Wedding" : "Traditional Celebration"} · ${weddingConfig.brand.monogram}`;
   return `https://calendar.google.com/calendar/render?${new URLSearchParams({ action: "TEMPLATE", text: title, dates: `${stamp(start)}/${stamp(new Date(start.getTime() + event.durationHours * 3600000))}`, ctz: event.timezone, location: `${event.venue}, ${event.address}`, details: event.timeConfirmed ? "We look forward to celebrating with you." : "Traditional celebration time is provisional. Please confirm with the family." })}`;
 }

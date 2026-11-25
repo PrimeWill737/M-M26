@@ -16,7 +16,7 @@ export function RSVP() {
             className="contact"
             href={
               contact.whatsappOnly
-                ? `https://wa.me/${contact.international}?text=${encodeURIComponent(`Hello ${contact.name}, I'm reaching out regarding ${c.brand.brideFirst} & ${c.brand.groomFirst}'s wedding — ${c.brand.monogram}.`)}`
+                ? `https://wa.me/${contact.international}?text=${encodeURIComponent(`Hello ${contact.name}, I'm reaching out regarding ${c.brand.brideFirst} & ${c.brand.groomFirst}'s wedding · ${c.brand.monogram}.`)}`
                 : `tel:+${contact.international}`
             }
             target={contact.whatsappOnly ? "_blank" : undefined}

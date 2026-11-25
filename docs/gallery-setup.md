@@ -1,0 +1,35 @@
+# The forever album
+
+The home page switches at **18 December 2026, 1:30 pm WAT (12:30 UTC)**. It renders against server time on each request; an already-open invitation refreshes at the boundary. No cron or redeploy is needed. Keep your host's clock correct. `/v2` shows a launch countdown before the scheduled opening, then the album. It is excluded from search indexing. Under `bun run dev` only, `/v2?preview=1` bypasses the countdown for design testing. This bypass is ignored in production and does not unlock uploads.
+
+## Configure the services
+
+1. Fill the new `.env` variables, and set the same values in your hosting provider's production environment. Restart the local server after editing `.env`. Never prefix secrets with `NEXT_PUBLIC_`.
+2. In Cloudinary, copy your cloud name, API key and secret. Create a **signed** upload preset named `mm26_guest_memories` (or change `CLOUDINARY_UPLOAD_PRESET`). Leave public ID prefixes/folder overrides and filename-based IDs off: the app signs `mm26/<album>/<uuid>`. Disable overwrite. Set `GALLERY_MAX_UPLOAD_MB` within your Cloudinary account limits. Upload presets do not support per-preset file-size limits: the browser checks size before transfer and the server checks the verified asset before publishing. Direct uploads can still consume storage before server verification. Allow the image/video formats your plan supports; exclude documents and audio-only formats. Keep original files, with no destructive incoming transformations. Enable image/video delivery and on-demand JPG/MP4 transformations; strict transformation accounts must allow the transformations used in `Gallery.tsx`.
+3. Use the existing server-only `DATABASE_URL` from Supabase?s Connect panel (Session pooler). The app connects directly to PostgreSQL over SSL using a small, reused connection pool. No Supabase Project URL, public key, or service-role API key is required. Preserve the connection string exactly, with any special password characters URL-encoded. Copy `DATABASE_URL` into your production host?s environment too.
+4. Run `supabase/migrations/202611250001_memories.sql` in the Supabase SQL editor. Tables have row-level security enabled and no anonymous access. Only the server reads/writes using the database role in `DATABASE_URL`. The standard Supabase postgres connection can access these tables; a custom database role needs explicit table and function grants.
+5. To test before launch, set `GALLERY_ALLOW_EARLY_UPLOADS=true` locally, restart, and visit `/v2?preview=1` under `bun run dev`. Set it back to `false` before production. Test a JPG, an iPhone HEIC, MOV and MP4, both albums, a failed upload/retry, and downloading the original. Use files within your plan limits.
+
+## Uploads and formats
+
+Guests can choose up to 20 files in a batch. Files travel directly to Cloudinary in 6 MB chunks; your Next.js host does not receive large files. The default limit is 100 MB per file, adjustable up to 500 MB, subject to your Cloudinary account limits. Cloudinary's decoder determines supported formats; accepting every possible image/video encoding is not technically possible. Browser-compatible JPG previews and H.264/AAC MP4 playback are generated from accepted originals. The original remains downloadable. First-time transformations may take time, especially videos. Uploading does not require guest accounts.
+
+The server signs a unique public ID, verifies the resource through Cloudinary's authenticated API, then records it in Supabase. Save retries reuse the uploaded resource; unique public IDs prevent duplicate database entries. Retrying an interrupted transfer restarts that file. Keep the page open: queues do not persist after closing the tab. Upload receipts expire after one hour; remove and reselect a file if its receipt expires.
+
+The upload endpoint requires same-origin requests, public-sharing consent and the launch gate. Database counters limit signing to 1,000 attempts/hour globally and 100/hour per Vercel-verified IP (other hosts use a shared bucket). Completion verification is limited to 10 attempts/hour per signed upload receipt. For another host, configure a trusted client IP source before adding per-guest limits; never blindly trust arbitrary forwarded headers. Anonymous uploads are inherently public; apply hosting firewall limits if needed. Signatures cannot restrict resource type or size alone. The signed preset restricts file formats and disables overwrite. Account upload limits remain the storage-side size control. Cloudinary Admin API verification also counts against your plan's API quota.
+
+## Keep the album available
+
+In Supabase's `memories` table, set `hidden=true` to remove an item from the gallery. This does not revoke its Cloudinary URL: delete the corresponding asset in Cloudinary too if it must be removed entirely. Use the dashboard to moderate unwanted uploads. Failed verification or abandoned transfers may leave assets in Cloudinary without a database row; periodically review the `mm26/` folders and remove orphans after confirming they are not referenced.
+
+There is no automatic expiry or deletion of published memories. Long-term availability depends on maintaining hosting, domain, Cloudinary and Supabase accounts, billing and backups. Keep periodic database exports and original-media backups. Do not delete or rename the `mm26/` folder or public IDs. Monitor storage, transformation, bandwidth and API quotas ahead of the event.
+
+References: [Cloudinary uploads](https://cloudinary.com/documentation/upload_images), [supported upload parameters](https://cloudinary.com/documentation/upload_parameters), [Supabase PostgreSQL connections](https://supabase.com/docs/guides/database/connecting-to-postgres).
+
+## Application protections
+
+JSON request bodies are capped at 16 KiB while streaming, and malformed/non-object JSON is rejected. Mutations check same-origin requests; set `NEXT_PUBLIC_SITE_URL` to your canonical production origin to pin this check. The early-upload override only works outside production. Signed upload receipts expire after one hour. Upload signatures and errors use no-store responses. Database statements use bound parameters and table RLS denies anonymous/authenticated Data API access. HTTP headers block framing and object embeds, disable MIME sniffing and limit referrer data. These do not provide user identity: the guest album remains intentionally public.
+
+Database TLS verifies the server certificate and hostname against the public Supabase root CA bundled in lib/supabase-ca.ts. This certificate expires on 26 April 2031; refresh it from Supabase before expiry or if Supabase rotates its CA. Do not disable certificate validation to work around connection failures.
+
+The first album visit plays a short, silent confetti/fireworks animation, remembered in localStorage per browser. Reduced-motion visitors skip it. Development previews use a separate marker, so testing does not suppress the real launch welcome. To replay locally, clear `mm26-preview-welcome` in localStorage. If browser storage is unavailable, the animation can repeat on later visits.

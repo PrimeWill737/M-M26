@@ -59,7 +59,7 @@ export function GuestWish() {
                 {message.trim() && contact ? (
                   <a
                     className="button"
-                    href={`https://wa.me/${contact.international}?text=${encodeURIComponent(`A wish for ${c.brand.brideFirst} & ${c.brand.groomFirst} — ${c.brand.monogram}:\n\n${message.trim()}`)}`}
+                    href={`https://wa.me/${contact.international}?text=${encodeURIComponent(`A wish for ${c.brand.brideFirst} & ${c.brand.groomFirst} · ${c.brand.monogram}:\n\n${message.trim()}`)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

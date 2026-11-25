@@ -9,12 +9,12 @@ describe("Wedding dates and calendars", () => {
       "2026-12-19T09:00:00.000Z",
     );
     expect(displayTime(c.wedding)).toBe("10:00 AM");
-    expect(displayTime(c.traditional)).toBe("2:00 PM");
+    expect(displayTime(c.traditional)).toBe("1:00 PM");
   });
   test("calendar uses the configured traditional time and includes provisional notice", () => {
     const url = new URL(calendarUrl({ ...c.traditional, time: "16:30" }));
     expect(url.searchParams.get("dates")).toBe(
-      "20261219T153000Z/20261219T183000Z",
+      "20261218T153000Z/20261218T183000Z",
     );
     expect(url.searchParams.get("details")).toContain("provisional");
     expect(url.searchParams.get("ctz")).toBe("Africa/Lagos");
